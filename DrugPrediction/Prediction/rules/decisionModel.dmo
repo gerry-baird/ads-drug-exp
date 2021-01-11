@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>decisionModel</name>
+  <uuid>a8984ff3-076a-4c18-bf07-d67454d24cf4</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+    <extensionElements>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <inputData id="node_0" name="bmi">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.Double" collection="false" name="bmi"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_0_ii" name="bmi" typeRef="java.lang.Double"/>
+    </inputData>
+    <decision id="node_1" name="Decision">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="java.lang.Double" collection="false" name="bmi"/>
+                <input bomType="java.lang.Long" collection="false" name="age"/>
+                <input bomType="java.lang.String" collection="false" name="gender"/>
+                <input bomType="java.lang.String" collection="false" name="bp"/>
+                <output bomType="java.lang.String" collection="false" name="Decision"/>
+                <rule defaultRule="false" href="node_1/Call%20Model.drl" kind="BusinessRule" name="Call Model"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_1_ii" name="Decision" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_4"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_5"/>
+        </informationRequirement>
+        <knowledgeRequirement>
+            <requiredKnowledge href="#node_2"/>
+        </knowledgeRequirement>
+    </decision>
+    <inputData id="node_3" name="age">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.Long" collection="false" name="age"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_3_ii" name="age" typeRef="java.lang.Long"/>
+    </inputData>
+    <inputData id="node_4" name="gender">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.String" collection="false" name="gender"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_4_ii" name="gender" typeRef="java.lang.String"/>
+    </inputData>
+    <inputData id="node_5" name="bp">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.String" collection="false" name="bp"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_5_ii" name="bp" typeRef="java.lang.String"/>
+    </inputData>
+    <businessKnowledgeModel id="node_2" name="Drug P3 XGB">
+        <extensionElements>
+            <properties xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <property name="ads.designer.bkKind"><![CDATA[prediction]]></property>
+            </properties>
+        </extensionElements>
+        <variable name="Drug P3 XGB" typeRef="java.lang.String"/>
+        <encapsulatedLogic typeRef="java.lang.String">
+            <formalParameter name="age" typeRef="java.lang.Long"/>
+            <formalParameter name="gender" typeRef="java.lang.String"/>
+            <formalParameter name="bp" typeRef="java.lang.String"/>
+            <formalParameter name="bmi" typeRef="java.lang.Double"/>
+            <context>
+                <contextEntry>
+                    <variable name="class"/>
+                    <literalExpression>
+                        <text>"decisions.drugprediction.drugprediction.drugP3XGB.DrugP3XGB"</text>
+                    </literalExpression>
+                </contextEntry>
+                <contextEntry>
+                    <variable name="method signature"/>
+                    <literalExpression>
+                        <text>"run(java.lang.Long,java.lang.String,java.lang.String,java.lang.Double)"</text>
+                    </literalExpression>
+                </contextEntry>
+            </context>
+        </encapsulatedLogic>
+    </businessKnowledgeModel>
+</definitions></definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>

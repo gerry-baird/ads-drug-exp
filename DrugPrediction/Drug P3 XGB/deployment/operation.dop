@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" rulesetName="operation" targetRuleProjectName="Drug P3 XGB">
+  <name>drugP3XGB</name>
+  <uuid>dbb8084b-1f2d-4acb-838f-2e74a7cf09ca</uuid>
+  <decisionModel href="../rules/decisionModel.dmo#0131c6c2-1892-405f-bd9c-043f7055c035"/>
+  <targetRuleProject href="../../Drug%20P3%20XGB#3e88c3c1-14d6-4a98-a2de-6abc0f63000e"/>
+  <tags key="ProviderType">
+    <value><![CDATA[OPS]]></value>
+  </tags>
+</com.ibm.rules.studio.model.decisionservice:Operation>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>drugP3XGB</name>
+  <uuid>0131c6c2-1892-405f-bd9c-043f7055c035</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="Decisions" name="drugP3XGB" namespace="">
+    <extensionElements>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <inputData id="input" name="age">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.Long" collection="false" name="age"/>
+            </initialization>
+        </extensionElements>
+        <variable id="input_ii" name="age" typeRef="java.lang.Long"/>
+    </inputData>
+    <decision id="input-mapping" name="Input mapping">
+        <description>ML model input</description>
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="java.lang.Long" collection="false" name="age"/>
+                <input bomType="java.lang.String" collection="false" name="gender"/>
+                <input bomType="java.lang.String" collection="false" name="bp"/>
+                <input bomType="java.lang.Double" collection="false" name="bmi"/>
+                <output bomType="decisions.drugprediction.drugprediction.drugP3XGB.Input" collection="false" name="Input mapping"/>
+                <rule defaultRule="false" href="input-mapping/input%20mapping.drl" kind="BusinessRule" name="input mapping"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="input_mapping_ii" name="Input mapping" typeRef="decisions.drugprediction.drugprediction.drugP3XGB.Input"/>
+        <informationRequirement>
+            <requiredInput href="#input"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_1"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+    </decision>
+    <decision id="output" name="ML model invocation">
+        <description>ML model output</description>
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="decisions.drugprediction.drugprediction.drugP3XGB.Input" collection="false" name="Input mapping"/>
+                <output bomType="decisions.drugprediction.drugprediction.drugP3XGB.Output" collection="false" name="ML model invocation"/>
+                <rule defaultRule="false" href="decisionModel.drl" kind="BusinessRule" name="Prediction"/>
+            </ruleset>
+            <properties xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <property name="ads.designer.predictionInvocation"><![CDATA[true]]></property>
+            </properties>
+        </extensionElements>
+        <variable id="output_ii" name="ML model invocation" typeRef="decisions.drugprediction.drugprediction.drugP3XGB.Output"/>
+        <informationRequirement>
+            <requiredInput href="#input-mapping"/>
+        </informationRequirement>
+    </decision>
+    <decision id="output-mapping" name="drug">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="decisions.drugprediction.drugprediction.drugP3XGB.Output" collection="false" name="ML model invocation"/>
+                <output bomType="java.lang.String" collection="false" name="drug"/>
+                <rule defaultRule="false" href="output-mapping/output.drl" kind="BusinessRule" name="output"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="output_mapping_ii" name="drug" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#output"/>
+        </informationRequirement>
+    </decision>
+    <inputData id="node_1" name="gender">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.String" collection="false" name="gender"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_1_ii" name="gender" typeRef="java.lang.String"/>
+    </inputData>
+    <inputData id="node_2" name="bp">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.String" collection="false" name="bp"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_2_ii" name="bp" typeRef="java.lang.String"/>
+    </inputData>
+    <inputData id="node_3" name="bmi">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.Double" collection="false" name="bmi"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_3_ii" name="bmi" typeRef="java.lang.Double"/>
+    </inputData>
+</definitions></definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>

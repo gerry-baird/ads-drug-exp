@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>Call Model</name>
+  <uuid>f49ce0aa-a942-4d49-a09b-fa22b1788a32</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[ set decision to the drug P3 XGB computed from
+      age being age, 
+      gender being gender, 
+      bp being bp, 
+      bmi being bmi ;
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>
